@@ -3,6 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { propertyOpsRouter } from "./routers/propertyOps";
+import { turnoverRouter } from "./routers/turnover";
 
 export const appRouter = router({
   system: systemRouter,
@@ -14,7 +15,7 @@ export const appRouter = router({
     }),
   }),
   propertyOps: propertyOpsRouter,
+  turnover: turnoverRouter,
 });
 
 export type AppRouter = typeof appRouter;
-

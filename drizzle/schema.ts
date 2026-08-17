@@ -113,5 +113,91 @@ export const userNotifications = mysqlTable("user_notifications", {
   index("notifications_owner_created_idx").on(table.ownerId, table.createdAt),
 ]);
 
+export const turnoverUnits = mysqlTable("turnover_units", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  name: varchar("name", { length: 120 }).notNull(),
+  zone: varchar("zone", { length: 160 }).notNull(),
+  unitType: varchar("unitType", { length: 80 }).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, table => [index("turnover_units_owner_updated_idx").on(table.ownerId, table.updatedAt)]);
+
+export const turnovers = mysqlTable("turnovers", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  unitId: int("unitId").notNull().references(() => turnoverUnits.id),
+  status: mysqlEnum("status", ["planned", "in_progress", "released", "cancelled"]).default("planned").notNull(),
+  checkoutAt: timestamp("checkoutAt"),
+  checkinAt: timestamp("checkinAt"),
+  releasedAt: timestamp("releasedAt"),
+  releasedByUserId: int("releasedByUserId").references(() => users.id),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, table => [index("turnovers_owner_unit_status_idx").on(table.ownerId, table.unitId, table.status)]);
+
+export const turnoverChecklistItems = mysqlTable("turnover_checklist_items", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  turnoverId: int("turnoverId").notNull().references(() => turnovers.id),
+  label: varchar("label", { length: 180 }).notNull(),
+  status: mysqlEnum("status", ["pending", "done", "skipped"]).default("pending").notNull(),
+  completedAt: timestamp("completedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("turnover_checklist_owner_turnover_idx").on(table.ownerId, table.turnoverId)]);
+
+export const turnoverEvidence = mysqlTable("turnover_evidence", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  turnoverId: int("turnoverId").notNull().references(() => turnovers.id),
+  description: text("description").notNull(),
+  fileUrl: varchar("fileUrl", { length: 2048 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("turnover_evidence_owner_turnover_idx").on(table.ownerId, table.turnoverId)]);
+
+export const turnoverIncidents = mysqlTable("turnover_incidents", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  turnoverId: int("turnoverId").notNull().references(() => turnovers.id),
+  description: text("description").notNull(),
+  severity: mysqlEnum("severity", ["low", "medium", "high"]).default("medium").notNull(),
+  status: mysqlEnum("status", ["open", "resolved"]).default("open").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  resolvedAt: timestamp("resolvedAt"),
+}, table => [index("turnover_incidents_owner_turnover_idx").on(table.ownerId, table.turnoverId)]);
+
+export const turnoverDiscoveryCandidates = mysqlTable("turnover_discovery_candidates", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  source: mysqlEnum("source", ["google_places"]).notNull(),
+  query: varchar("query", { length: 320 }).notNull(),
+  externalId: varchar("externalId", { length: 255 }).notNull(),
+  name: varchar("name", { length: 240 }).notNull(),
+  address: text("address"),
+  mapsUrl: varchar("mapsUrl", { length: 2048 }),
+  websiteUrl: varchar("websiteUrl", { length: 2048 }),
+  category: varchar("category", { length: 160 }),
+  latitude: varchar("latitude", { length: 32 }),
+  longitude: varchar("longitude", { length: 32 }),
+  status: mysqlEnum("status", ["discovered", "reviewed", "dismissed"]).default("discovered").notNull(),
+  reviewedAt: timestamp("reviewedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [
+  uniqueIndex("turnover_discovery_owner_source_external_unique").on(table.ownerId, table.source, table.externalId),
+  index("turnover_discovery_owner_status_created_idx").on(table.ownerId, table.status, table.createdAt),
+]);
+
+export const evoxModuleEvents = mysqlTable("evox_module_events", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  actorId: int("actorId").notNull().references(() => users.id),
+  module: mysqlEnum("module", ["turnover", "vendor", "obra"]).notNull(),
+  entityType: varchar("entityType", { length: 80 }).notNull(),
+  entityId: int("entityId").notNull(),
+  action: varchar("action", { length: 120 }).notNull(),
+  metadata: text("metadata"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("module_events_owner_module_created_idx").on(table.ownerId, table.module, table.createdAt)]);
+
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;

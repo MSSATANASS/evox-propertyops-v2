@@ -44,3 +44,17 @@
 - [x] Añadir pruebas Vitest de persistencia simulada, aislamiento por usuario, creación de alertas y marcado de lectura.
 - [x] Añadir pruebas de preferencias persistentes, lectura aislada y creación de alertas desde flujos operativos con un adaptador de almacenamiento simulado.
 - [x] Reforzar el adaptador de pruebas para aplicar filtros y actualizaciones selectivas por usuario y notificación.
+- [x] Identificar tres problemas operativos de Mérida con un comprador claro, evidencia verificable y un MVP funcional viable.
+- [x] Diseñar la arquitectura compartida y los límites de seguridad, aislamiento y control humano para las tres aplicaciones.
+- [ ] Construir, probar y publicar la primera aplicación funcional orientada a Mérida: Evox TurnoverOps.
+- [ ] Añadir pruebas Vitest del flujo persistente, aislamiento por usuario y liberación humana de TurnoverOps.
+- [ ] Verificar en navegador el flujo autenticado completo de TurnoverOps y documentar el resultado antes de publicarlo.
+- [x] Implementar descubrimiento asistido de referencias públicas de unidades en Mérida sin scraping oculto ni alta automática.
+- [ ] Guardar candidatos de fuentes públicas para revisión humana antes de convertirlos en unidades operativas.
+- [x] Documentar la procedencia, límites y revisión humana de los candidatos de TurnoverOps.
+- [x] Añadir pruebas Vitest del contrato protegido de guardado y revisión de candidatos públicos de TurnoverOps.
+- [x] Registrar en PiecesOS un resumen técnico mínimo de TurnoverOps sin datos personales, credenciales ni actividad ajena.
+- [x] Evaluar Anything AI para una tarea complementaria sin duplicar ni sustituir la suite Evox.
+- [ ] Construir, probar y publicar la segunda aplicación funcional orientada a Mérida.
+- [ ] Construir, probar y publicar la tercera aplicación funcional orientada a Mérida.
+- [ ] Preparar los tres casos de estudio de Contra con enlaces, evidencia y alcance verificable.
