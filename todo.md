@@ -56,5 +56,6 @@
 - [x] Registrar en PiecesOS un resumen técnico mínimo de TurnoverOps sin datos personales, credenciales ni actividad ajena.
 - [x] Evaluar Anything AI para una tarea complementaria sin duplicar ni sustituir la suite Evox.
 - [ ] Construir, probar y publicar la segunda aplicación funcional orientada a Mérida.
+- [x] Añadir pruebas Vitest del contrato tRPC y de las confirmaciones humanas de VendorOps.
 - [ ] Construir, probar y publicar la tercera aplicación funcional orientada a Mérida.
 - [ ] Preparar los tres casos de estudio de Contra con enlaces, evidencia y alcance verificable.

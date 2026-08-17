@@ -187,6 +187,45 @@ export const turnoverDiscoveryCandidates = mysqlTable("turnover_discovery_candid
   index("turnover_discovery_owner_status_created_idx").on(table.ownerId, table.status, table.createdAt),
 ]);
 
+export const serviceVendors = mysqlTable("service_vendors", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  name: varchar("name", { length: 160 }).notNull(),
+  category: varchar("category", { length: 120 }).notNull(),
+  phone: varchar("phone", { length: 40 }),
+  contactEmail: varchar("contactEmail", { length: 320 }),
+  notes: text("notes"),
+  status: mysqlEnum("status", ["active", "inactive"]).default("active").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, table => [index("service_vendors_owner_status_idx").on(table.ownerId, table.status)]);
+
+export const serviceRequests = mysqlTable("service_requests", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  vendorId: int("vendorId").references(() => serviceVendors.id),
+  title: varchar("title", { length: 180 }).notNull(),
+  location: varchar("location", { length: 240 }).notNull(),
+  description: text("description").notNull(),
+  status: mysqlEnum("status", ["draft", "pending_visit", "quoted", "scheduled", "completed", "cancelled"]).default("draft").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, table => [index("service_requests_owner_status_idx").on(table.ownerId, table.status), index("service_requests_owner_vendor_idx").on(table.ownerId, table.vendorId)]);
+
+export const vendorQuotes = mysqlTable("vendor_quotes", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  requestId: int("requestId").notNull().references(() => serviceRequests.id),
+  vendorId: int("vendorId").notNull().references(() => serviceVendors.id),
+  description: text("description").notNull(),
+  amountCents: int("amountCents").notNull(),
+  evidenceUrl: varchar("evidenceUrl", { length: 2048 }),
+  status: mysqlEnum("status", ["pending", "accepted", "rejected"]).default("pending").notNull(),
+  decidedByUserId: int("decidedByUserId").references(() => users.id),
+  decidedAt: timestamp("decidedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("vendor_quotes_owner_request_status_idx").on(table.ownerId, table.requestId, table.status)]);
+
 export const evoxModuleEvents = mysqlTable("evox_module_events", {
   id: int("id").autoincrement().primaryKey(),
   ownerId: int("ownerId").notNull().references(() => users.id),
