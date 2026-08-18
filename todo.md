@@ -66,6 +66,10 @@
 - [ ] Definir y construir el primer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Implementar Evox TourRun: migración, reglas, tRPC, interfaz, pruebas y verificación autenticada.
 - [ ] Verificar y documentar en sesión autenticada el flujo integral de TourRun y sus límites humanos.
+- [ ] Diagnosticar por qué la versión publicada de `/tourrun` aún no está lista y corregir el flujo pendiente en producción.
+- [ ] Evitar que los avisos temporales bloqueen los controles de decisión humana de TourRun.
+- [ ] Verificar en My Browser que un aviso de éxito no impide completar la transición `ready → in_progress` de TourRun.
+- [ ] Documentar evidencia reproducible de que los avisos no cubren controles críticos en escritorio y móvil.
 - [ ] Definir y construir el segundo proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Definir y construir el tercer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Redactar los tres casos de estudio no inmobiliarios para Contra con evidencia verificable y alcance honesto.

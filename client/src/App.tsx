@@ -14,5 +14,5 @@ function Router() {
 }
 
 export default function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster position="top-center" closeButton duration={3200} /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
