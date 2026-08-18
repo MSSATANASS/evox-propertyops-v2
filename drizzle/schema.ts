@@ -238,5 +238,84 @@ export const evoxModuleEvents = mysqlTable("evox_module_events", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 }, table => [index("module_events_owner_module_created_idx").on(table.ownerId, table.module, table.createdAt)]);
 
+export const tourGuides = mysqlTable("tour_guides", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  name: varchar("name", { length: 160 }).notNull(),
+  phone: varchar("phone", { length: 40 }),
+  notes: text("notes"),
+  status: mysqlEnum("status", ["active", "inactive"]).default("active").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, table => [index("tour_guides_owner_status_idx").on(table.ownerId, table.status)]);
+
+export const tourDepartures = mysqlTable("tour_departures", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  title: varchar("title", { length: 180 }).notNull(),
+  routeLabel: varchar("routeLabel", { length: 240 }).notNull(),
+  guideId: int("guideId").references(() => tourGuides.id),
+  departureAt: timestamp("departureAt"),
+  status: mysqlEnum("status", ["draft", "ready", "in_progress", "completed", "cancelled"]).default("draft").notNull(),
+  statusChangedByUserId: int("statusChangedByUserId").references(() => users.id),
+  statusChangedAt: timestamp("statusChangedAt"),
+  cancellationReason: text("cancellationReason"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, table => [index("tour_departures_owner_status_date_idx").on(table.ownerId, table.status, table.departureAt)]);
+
+export const tourStops = mysqlTable("tour_stops", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  departureId: int("departureId").notNull().references(() => tourDepartures.id),
+  sequence: int("sequence").notNull(),
+  name: varchar("name", { length: 180 }).notNull(),
+  notes: text("notes"),
+  scheduledAt: timestamp("scheduledAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("tour_stops_owner_departure_sequence_idx").on(table.ownerId, table.departureId, table.sequence)]);
+
+export const tourParticipants = mysqlTable("tour_participants", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  departureId: int("departureId").notNull().references(() => tourDepartures.id),
+  displayName: varchar("displayName", { length: 160 }).notNull(),
+  partySize: int("partySize").default(1).notNull(),
+  status: mysqlEnum("status", ["registered", "cancelled", "checked_in"]).default("registered").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("tour_participants_owner_departure_status_idx").on(table.ownerId, table.departureId, table.status)]);
+
+export const tourIncidents = mysqlTable("tour_incidents", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  departureId: int("departureId").notNull().references(() => tourDepartures.id),
+  description: text("description").notNull(),
+  severity: mysqlEnum("severity", ["low", "medium", "high"]).default("medium").notNull(),
+  status: mysqlEnum("status", ["open", "resolved"]).default("open").notNull(),
+  resolvedAt: timestamp("resolvedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("tour_incidents_owner_departure_status_idx").on(table.ownerId, table.departureId, table.status)]);
+
+export const tourEvidence = mysqlTable("tour_evidence", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  departureId: int("departureId").notNull().references(() => tourDepartures.id),
+  description: text("description").notNull(),
+  fileUrl: varchar("fileUrl", { length: 2048 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("tour_evidence_owner_departure_idx").on(table.ownerId, table.departureId)]);
+
+export const tourEvents = mysqlTable("tour_events", {
+  id: int("id").autoincrement().primaryKey(),
+  ownerId: int("ownerId").notNull().references(() => users.id),
+  actorId: int("actorId").notNull().references(() => users.id),
+  departureId: int("departureId").references(() => tourDepartures.id),
+  entityType: varchar("entityType", { length: 80 }).notNull(),
+  entityId: int("entityId").notNull(),
+  action: varchar("action", { length: 120 }).notNull(),
+  metadata: text("metadata"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => [index("tour_events_owner_departure_created_idx").on(table.ownerId, table.departureId, table.createdAt)]);
+
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;

@@ -64,6 +64,8 @@
 - [ ] Preparar los tres casos de estudio de Contra con enlaces, evidencia y alcance verificable.
 - [x] Investigar y seleccionar tres nichos no inmobiliarios de Mérida con problema operativo, comprador claro y evidencia pública.
 - [ ] Definir y construir el primer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
+- [ ] Implementar Evox TourRun: migración, reglas, tRPC, interfaz, pruebas y verificación autenticada.
+- [ ] Verificar y documentar en sesión autenticada el flujo integral de TourRun y sus límites humanos.
 - [ ] Definir y construir el segundo proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Definir y construir el tercer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Redactar los tres casos de estudio no inmobiliarios para Contra con evidencia verificable y alcance honesto.

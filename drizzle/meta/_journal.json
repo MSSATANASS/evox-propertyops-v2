@@ -57,6 +57,13 @@
       "when": 1787009434475,
       "tag": "0007_nappy_war_machine",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1787013639796,
+      "tag": "0008_smart_blue_marvel",
+      "breakpoints": true
     }
   ]
 }
