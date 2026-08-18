@@ -2,6 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
+import { commerceRouter } from "./routers/commerce";
 import { propertyOpsRouter } from "./routers/propertyOps";
 import { tourRunRouter } from "./routers/tourRun";
 import { turnoverRouter } from "./routers/turnover";
@@ -16,6 +17,7 @@ export const appRouter = router({
       return { success: true } as const;
     }),
   }),
+  commerce: commerceRouter,
   propertyOps: propertyOpsRouter,
   tourRun: tourRunRouter,
   turnover: turnoverRouter,

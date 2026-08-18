@@ -5,12 +5,13 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Shop from "./pages/Shop";
 import TourRun from "./pages/TourRun";
 import Turnover from "./pages/Turnover";
 import Vendor from "./pages/Vendor";
 
 function Router() {
-  return <Switch><Route path="/" component={Home} /><Route path="/tourrun" component={TourRun} /><Route path="/turnover" component={Turnover} /><Route path="/vendors" component={Vendor} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch>;
+  return <Switch><Route path="/" component={Home} /><Route path="/tienda" component={Shop} /><Route path="/tourrun" component={TourRun} /><Route path="/turnover" component={Turnover} /><Route path="/vendors" component={Vendor} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch>;
 }
 
 export default function App() {

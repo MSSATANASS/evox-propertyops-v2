@@ -29,3 +29,7 @@ La verificación publicada continuó con éxito en My Browser: se guardaron la p
 También se registró la incidencia de prueba **“Incidencia de verificación para resolver manualmente”**. El contador de incidencias abiertas aumentó a uno y el cierre permaneció sujeto al bloqueo declarado. Después se utilizó el control **Resolver** y el registro cambió a `resolved`; el contador de incidencias abiertas volvió a cero.
 
 Con guía asignado, una parada registrada e incidencias abiertas en cero, se escribió **`CONFIRMAR READY`** y se activó el control de decisión humana. La salida pasó de `draft` a `ready`; la interfaz confirmó la acción y solo entonces ofreció la siguiente transición `in_progress` con una nueva confirmación escrita.
+
+## Pantalla temporal de acceso
+
+TourRun ahora presenta una pantalla de acceso temporal cuando no existe sesión. Se comprobó en una sesión de navegador sin autenticar que el formulario requiere un correo con formato válido y la confirmación explícita de uso por un operador autorizado antes de habilitar el botón **“Continuar con acceso seguro”**. El correo no se persiste ni genera una cuenta local; el botón conserva la redirección al inicio de sesión seguro existente.

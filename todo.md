@@ -71,7 +71,14 @@
 - [ ] Verificar en My Browser que un aviso de éxito no impide completar la transición `ready → in_progress` de TourRun.
 - [ ] Documentar evidencia reproducible de que los avisos no cubren controles críticos en escritorio y móvil.
 - [ ] Añadir una pantalla de acceso temporal, sencilla y claramente limitada para probar TourRun sin OAuth.
+- [x] Implementar y publicar una pantalla sencilla de inicio de sesión temporal que deriva al acceso seguro existente.
+- [ ] Diseñar un modo de prueba temporal sin OAuth que preserve el aislamiento de datos y no almacene información sensible.
 - [ ] Crear una nueva tienda Shopify de desarrollo y conectarla al sitio Evox después de terminar la pantalla de acceso de TourRun.
+- [x] Registrar el router de comercio y las variables de Shopify requeridas por el storefront inyectado.
+- [x] Registrar el router de comercio y las variables de Shopify requeridas por el storefront inyectado.
+- [x] Verificar el storefront de la nueva tienda Shopify sin crear productos ni precios no autorizados.
+- [x] Añadir un escaparate Shopify mínimo con estado vacío honesto y acceso desde la suite Evox.
+- [x] Ajustar la prueba de Shopify para validar conectividad sin exigir productos ni precios no autorizados.
 - [ ] Definir y construir el segundo proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Definir y construir el tercer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Redactar los tres casos de estudio no inmobiliarios para Contra con evidencia verificable y alcance honesto.
