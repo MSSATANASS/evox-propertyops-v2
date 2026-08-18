@@ -12,6 +12,8 @@ Se creó una nueva tienda de desarrollo vinculada al proyecto: `evoxprops-m9yxti
 | Catálogo | Vacío intencionalmente. |
 | Escaparate `/tienda` | Verificado: muestra el estado vacío honesto tras consultar Shopify. |
 
+La presentación móvil de `/tienda` también se verificó: el encabezado, la navegación de retorno y el estado de catálogo vacío permanecen legibles sin recortes ni controles superpuestos.
+
 ## Límites operativos
 
 No se crearon productos, precios, descuentos, cobros, reseñas ni datos comerciales de ejemplo. El escaparate comunica que el catálogo estará disponible cuando un operador defina y publique ofertas reales. La pantalla no inicia checkout mientras no exista un producto publicado.
