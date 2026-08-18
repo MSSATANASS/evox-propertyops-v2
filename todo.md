@@ -50,7 +50,7 @@
 - [ ] Añadir pruebas Vitest del flujo persistente, aislamiento por usuario y liberación humana de TurnoverOps.
 - [ ] Verificar en navegador el flujo autenticado completo de TurnoverOps y documentar el resultado antes de publicarlo.
 - [x] Implementar descubrimiento asistido de referencias públicas de unidades en Mérida sin scraping oculto ni alta automática.
-- [ ] Guardar candidatos de fuentes públicas para revisión humana antes de convertirlos en unidades operativas.
+- [x] Guardar un candidato de fuente pública y comprobar su revisión humana antes de convertirlo en una unidad operativa.
 - [x] Documentar la procedencia, límites y revisión humana de los candidatos de TurnoverOps.
 - [x] Añadir pruebas Vitest del contrato protegido de guardado y revisión de candidatos públicos de TurnoverOps.
 - [x] Registrar en PiecesOS un resumen técnico mínimo de TurnoverOps sin datos personales, credenciales ni actividad ajena.

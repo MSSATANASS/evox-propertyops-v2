@@ -18,7 +18,7 @@ La consulta se realiza en el navegador con el servicio de Places ya integrado en
 
 ## Verificación
 
-La interfaz autenticada se comprobó el 17 de agosto de 2026 con la consulta **“alojamiento Mérida Yucatán”**. El mapa se centró en Mérida y el panel mostró referencias públicas con nombres, direcciones, categoría y enlaces a la fuente. No se guardó ningún candidato durante esta verificación: la siguiente acción requiere que el usuario elija una referencia concreta.
+La interfaz autenticada se comprobó el 17 de agosto de 2026 con la consulta **“alojamiento Mérida Yucatán”**. El mapa se centró en Mérida y el panel mostró referencias públicas con nombres, direcciones, categoría y enlaces a la fuente. El usuario eligió y guardó **Kuka y Letras**; el panel confirmó el estado `reviewed` y mantuvo el enlace a la fuente. Esta referencia sigue siendo un candidato revisado: no se transformó en una unidad, reserva, cliente ni autorización operativa.
 
 ## Referencia
 
