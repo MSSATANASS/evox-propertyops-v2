@@ -20,6 +20,8 @@ La consulta se realiza en el navegador con el servicio de Places ya integrado en
 
 La interfaz autenticada se comprobó el 17 de agosto de 2026 con la consulta **“alojamiento Mérida Yucatán”**. El mapa se centró en Mérida y el panel mostró referencias públicas con nombres, direcciones, categoría y enlaces a la fuente. El usuario eligió y guardó **Kuka y Letras**; el panel confirmó el estado `reviewed` y mantuvo el enlace a la fuente. Esta referencia sigue siendo un candidato revisado: no se transformó en una unidad, reserva, cliente ni autorización operativa.
 
+La carga del mapa usa el modo asíncrono de Google Maps con callback e importación explícita de la biblioteca `maps`. Después del ajuste, se comprobó visualmente el mapa centrado en Mérida y se revisaron los registros posteriores de consola: no registraron una nueva advertencia de carga ni errores de constructor.
+
 ## Referencia
 
 [1]: https://developers.google.com/maps/documentation/javascript/places "Google Maps JavaScript API — Places"

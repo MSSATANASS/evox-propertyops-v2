@@ -53,9 +53,23 @@
 - [x] Guardar un candidato de fuente pública y comprobar su revisión humana antes de convertirlo en una unidad operativa.
 - [x] Documentar la procedencia, límites y revisión humana de los candidatos de TurnoverOps.
 - [x] Añadir pruebas Vitest del contrato protegido de guardado y revisión de candidatos públicos de TurnoverOps.
+- [x] Corregir la carga asíncrona del script de Google Maps para eliminar la advertencia detectada en el navegador.
+- [x] Restablecer la inicialización visual del mapa de TurnoverOps antes de marcar completada la carga asíncrona.
+- [x] Verificar en navegador y consola el renderizado visible del mapa y la ausencia de advertencias tras el callback asíncrono.
 - [x] Registrar en PiecesOS un resumen técnico mínimo de TurnoverOps sin datos personales, credenciales ni actividad ajena.
 - [x] Evaluar Anything AI para una tarea complementaria sin duplicar ni sustituir la suite Evox.
 - [ ] Construir, probar y publicar la segunda aplicación funcional orientada a Mérida.
 - [x] Añadir pruebas Vitest del contrato tRPC y de las confirmaciones humanas de VendorOps.
 - [ ] Construir, probar y publicar la tercera aplicación funcional orientada a Mérida.
 - [ ] Preparar los tres casos de estudio de Contra con enlaces, evidencia y alcance verificable.
+- [x] Investigar y seleccionar tres nichos no inmobiliarios de Mérida con problema operativo, comprador claro y evidencia pública.
+- [ ] Definir y construir el primer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
+- [ ] Definir y construir el segundo proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
+- [ ] Definir y construir el tercer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
+- [ ] Redactar los tres casos de estudio no inmobiliarios para Contra con evidencia verificable y alcance honesto.
+- [x] Definir el modelo de captación, pipeline, formularios y automatizaciones de HighLevel sin delegar decisiones operativas críticas.
+- [x] Documentar los campos mínimos, origen y consentimiento explícito de los formularios de captación de HighLevel.
+- [x] Documentar automatizaciones permitidas y prohibidas en HighLevel para preservar decisiones humanas críticas.
+- [x] Definir contratos de datos, estados y decisiones humanas del MVP de Evox TourRun.
+- [x] Definir contratos de datos, estados y decisiones humanas del MVP de Evox TallerTrack.
+- [x] Definir contratos de datos, estados y decisiones humanas del MVP de Evox ColmenaLedger.
