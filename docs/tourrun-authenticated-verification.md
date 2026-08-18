@@ -33,3 +33,5 @@ Con guía asignado, una parada registrada e incidencias abiertas en cero, se esc
 ## Pantalla temporal de acceso
 
 TourRun ahora presenta una pantalla de acceso temporal cuando no existe sesión. Se comprobó en una sesión de navegador sin autenticar que el formulario requiere un correo con formato válido y la confirmación explícita de uso por un operador autorizado antes de habilitar el botón **“Continuar con acceso seguro”**. El correo no se persiste ni genera una cuenta local; el botón conserva la redirección al inicio de sesión seguro existente.
+
+La misma pantalla se verificó en la ruta publicada `/tourrun` después del despliegue de Shopify: mantiene su explicación de límites, el campo de correo, la confirmación del operador y el enlace de retorno a PropertyOps.

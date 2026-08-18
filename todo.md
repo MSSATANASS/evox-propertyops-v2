@@ -73,7 +73,7 @@
 - [ ] Añadir una pantalla de acceso temporal, sencilla y claramente limitada para probar TourRun sin OAuth.
 - [x] Implementar y publicar una pantalla sencilla de inicio de sesión temporal que deriva al acceso seguro existente.
 - [ ] Diseñar un modo de prueba temporal sin OAuth que preserve el aislamiento de datos y no almacene información sensible.
-- [ ] Crear una nueva tienda Shopify de desarrollo y conectarla al sitio Evox después de terminar la pantalla de acceso de TourRun.
+- [x] Crear una nueva tienda Shopify de desarrollo y conectarla al sitio Evox después de terminar la pantalla de acceso de TourRun.
 - [x] Registrar el router de comercio y las variables de Shopify requeridas por el storefront inyectado.
 - [x] Registrar el router de comercio y las variables de Shopify requeridas por el storefront inyectado.
 - [x] Verificar el storefront de la nueva tienda Shopify sin crear productos ni precios no autorizados.
