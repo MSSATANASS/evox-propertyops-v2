@@ -70,6 +70,8 @@
 - [ ] Evitar que los avisos temporales bloqueen los controles de decisión humana de TourRun.
 - [ ] Verificar en My Browser que un aviso de éxito no impide completar la transición `ready → in_progress` de TourRun.
 - [ ] Documentar evidencia reproducible de que los avisos no cubren controles críticos en escritorio y móvil.
+- [ ] Añadir una pantalla de acceso temporal, sencilla y claramente limitada para probar TourRun sin OAuth.
+- [ ] Crear una nueva tienda Shopify de desarrollo y conectarla al sitio Evox después de terminar la pantalla de acceso de TourRun.
 - [ ] Definir y construir el segundo proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Definir y construir el tercer proyecto de portafolio no inmobiliario con controles humanos y datos aislados.
 - [ ] Redactar los tres casos de estudio no inmobiliarios para Contra con evidencia verificable y alcance honesto.
